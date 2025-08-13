@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Путь к Успеху</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="main-menu" class="screen">
+        <h1>Путь к Успеху</h1>
+        <button id="start-game-btn" class="menu-button">Старт</button>
+        <button id="settings-btn" class="menu-button">Настройки</button>
+        <button id="shop-btn" class="menu-button">Магазин</button>
+    </div>
+
+    <div id="settings-screen" class="screen">
+        <h2>Настройки</h2>
+        <div class="setting-item">
+            <label for="music-volume">Музыка</label>
+            <input id="music-volume" type="range" min="0" max="1" step="0.1" value="0.5">
+        </div>
+        <div class="setting-item">
+            <label for="sfx-volume">Звуки (SFX)</label>
+            <input id="sfx-volume" type="range" min="0" max="1" step="0.1" value="1.0">
+        </div>
+        <button id="back-from-settings-btn" class="menu-button">Назад</button>
+    </div>
+
+    <div id="shop-screen" class="screen">
+        <h2>Магазин улучшений</h2>
+        <div id="shop-items-container"></div>
+        <button id="back-from-shop-btn" class="menu-button">Назад</button>
+    </div>
+
+    <div id="game-container" class="screen">
+        <div id="ingame-nav">
+            <button id="ingame-menu-btn" class="ingame-button">Меню</button>
+            <button id="ingame-shop-btn" class="ingame-button">Магазин</button>
+        </div>
+        <div id="info-bar">
+            <div id="score-block">
+                <img src="money/Gold.png" alt="Монета">
+                <span id="score-display">0</span>
+            </div>
+            <div id="passive-income-block">
+                В секунду: <span id="passive-income-display">0</span>
+            </div>
+        </div>
+        <div id="main-area">
+            <div id="character-area">
+                <img id="character-image" src="character/char1.png" alt="Персонаж">
+            </div>
+            <div id="tap-area">
+                <img id="tap-object" src="tap/tap1.png" alt="Тапай сюда">
+            </div>
+        </div>
+        <div id="upgrades-bar">
+            <button id="upgrade-button">Улучшить жилье</button>
+        </div>
+    </div>
+
+    <audio id="bg-music" src="audio/background_music.mp3" loop></audio>
+    <audio id="tap-sound" src="audio/tap_sound.mp3"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
