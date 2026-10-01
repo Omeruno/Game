@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0605">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Отступник</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oranienbaum&family=Jost:wght@400;500&display=swap">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <canvas id="view"></canvas>
+    <div id="vignette"></div>
+    <div id="grain"></div>
+
+    <!-- ТИТУЛ -->
+    <section id="title">
+        <div class="title-inner">
+            <p class="eyebrow">Девять кругов</p>
+            <h1>Отступник</h1>
+            <p class="lead">Бесёнок продал Ад за обещание свободы. Теперь за ним охотятся все демоны, а фея, которая обещала свободу, — в плену где-то внизу.</p>
+            <ol class="circles" aria-label="Круги Ада">
+                <li class="open" title="Лимб">I</li><li title="Похоть">II</li><li title="Чревоугодие">III</li>
+                <li title="Алчность">IV</li><li title="Гнев">V</li><li title="Ересь">VI</li>
+                <li title="Насилие">VII</li><li title="Обман">VIII</li><li title="Предательство">IX</li>
+            </ol>
+            <div class="menu">
+                <button id="btn-new" class="menu-btn">Новая игра</button>
+                <button id="btn-continue" class="menu-btn" hidden>Продолжить</button>
+            </div>
+            <p class="controls-note kb-only">← → идти · Пробел прыжок · ↓ пригнуться · E схватить / рычаг · Esc пауза</p>
+            <p class="controls-note touch-only">Стик слева · ▲ прыжок · ✋ схватить и рычаги</p>
+        </div>
+    </section>
+
+    <!-- ИСТОРИЯ -->
+    <div id="story"></div>
+
+    <!-- ИНТЕРФЕЙС В ИГРЕ -->
+    <div id="hud">
+        <button id="btn-pause" aria-label="Пауза">
+            <svg viewBox="0 0 24 24" width="20" height="20"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+        </button>
+        <div id="boss-marks"><i></i><i></i><i></i></div>
+        <p id="hint"></p>
+        <p id="subtitle"></p>
+
+        <div id="touch">
+            <div id="stick-zone"></div>
+            <div id="stick-base"></div>
+            <div id="stick-knob"></div>
+            <button id="btn-act" aria-label="Схватить">
+                <svg viewBox="0 0 24 24" width="30" height="30"><path d="M8 12V5.5a1.5 1.5 0 0 1 3 0V11m0-6.5V4a1.5 1.5 0 0 1 3 0v7m0-5.5a1.5 1.5 0 0 1 3 0V12m0-3.5a1.5 1.5 0 0 1 3 0V15a6 6 0 0 1-6 6h-1.5a6 6 0 0 1-4.6-2.2L4.2 15a1.6 1.6 0 0 1 2.4-2.1L8 14.3"/></svg>
+            </button>
+            <button id="btn-jump" aria-label="Прыжок">
+                <svg viewBox="0 0 24 24" width="34" height="34"><path d="M5 15l7-7 7 7"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <div id="card">
+        <p id="card-num"></p>
+        <h2 id="card-name"></h2>
+        <p id="card-sub"></p>
+    </div>
+
+    <div id="flash"></div>
+    <div id="fade"></div>
+
+    <!-- ПАУЗА -->
+    <section id="pause" class="panel">
+        <h2>Пауза</h2>
+        <button id="btn-resume" class="menu-btn">Продолжить</button>
+        <button id="btn-retry" class="menu-btn">С последней точки</button>
+        <button id="btn-sound" class="menu-btn">Звук: вкл</button>
+        <button id="btn-menu" class="menu-btn">В главное меню</button>
+    </section>
+
+    <!-- КОНЕЦ КРУГА -->
+    <section id="end" class="panel">
+        <p class="eyebrow">Отступник</p>
+        <h2 id="end-title"></h2>
+        <p id="end-text"></p>
+        <dl id="end-stats"></dl>
+        <button id="btn-again" class="menu-btn">Сыграть снова</button>
+        <button id="btn-end-menu" class="menu-btn">В главное меню</button>
+    </section>
+
+    <div id="rotate">Поверни телефон горизонтально — так виднее</div>
+    <div id="no-webgl" hidden>Браузер не смог запустить 3D (WebGL). Попробуй Chrome или Safari последней версии.</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>window.THREE || document.write('<script src="js/lib/three.min.js"><\/script>');</script>
+    <script src="js/util.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/input.js"></script>
+    <script src="js/models.js"></script>
+    <script src="js/world.js"></script>
+    <script src="js/entities.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/levels/circle1.js"></script>
+</body>
+</html>
